@@ -7,70 +7,70 @@ from util import *
 
 rooms = [
     # room 0 = ENTER node.
-    Room(),
+    Room(10),
     
     # ---- row 1 -----
     # room 1
-    Room(root_vegetables, at_least_three_letters_at_least_twice),
+    Room(9, root_vegetables, at_least_three_letters_at_least_twice),
     # room 2
-    Room(),
+    Room(8),
     # room 3
-    Room(),
+    Room(7),
     # room 4
-    Room(),
+    Room(6),
     # room 5
-    Room(),
+    Room(5),
 
     # ---- row 2 -----
     # room 6
-    Room(),
+    Room(8),
     # room 7
-    Room(),
+    Room(7),
     # room 8
-    Room(),
+    Room(6),
     # room 9
-    Room(),
+    Room(5),
     # room 10
-    Room(),
+    Room(4),
 
     # ---- row 3 -----
     # room 11
-    Room(),
+    Room(7),
     # room 12
-    Room(),
+    Room(6),
     # room 13
-    Room(),
+    Room(5),
     # room 14
-    Room(),
+    Room(4),
     # room 15
-    Room(),
+    Room(3),
 
     # ---- row 4 -----
     # room 16
-    Room(),
+    Room(6),
     # room 17
-    Room(),
+    Room(5),
     # room 18
-    Room(),
+    Room(4),
     # room 19
-    Room(),
+    Room(3),
     # room 20
-    Room(),
+    Room(2),
 
     # ---- row 5 -----
     # room 21
-    Room(),
+    Room(5),
     # room 22
-    Room(),
+    Room(4),
     # room 23
-    Room(),
+    Room(3),
     # room 24
-    Room(),
+    Room(2),
     # room 25
-    Room(),
+    Room(1),
 
     # -- EXIT NODE --
-    Room()
+    Room(0)
     ]
 ENTER = rooms[0]
 EXIT = rooms[-1]

@@ -1,6 +1,9 @@
 #!/usr/bin/python
 
-def default_bluebox(s): return True # any entry
+def mw_entry():
+    yield "codex" # XXX implement generator for M-W entries.
+
+default_bluebox = mw_entry
 def default_greenbox(s): return False # any constraint
 
 class Room(object):

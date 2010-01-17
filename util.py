@@ -1,8 +1,8 @@
 #!/usr/bin/python
 
 # Implementation of lots of crazy evaluation functions.
-def is_root_vegetable(s):
-    return s in ['carrot', 'potato'] # XXX more?
+def root_vegetables(s):
+    return iter(['carrot', 'potato'])
 
 def at_least_three_letters_at_least_twice(s):
     count = 0
@@ -10,5 +10,5 @@ def at_least_three_letters_at_least_twice(s):
     for letter in s:
         if letter in seen:
             count += 1
-        count.add(letter)
+        seen.add(letter)
     return count >= 3

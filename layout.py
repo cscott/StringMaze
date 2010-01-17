@@ -11,7 +11,7 @@ rooms = [
     
     # ---- row 1 -----
     # room 1
-    Room(is_root_vegetable, at_least_three_letters_at_least_twice),
+    Room(root_vegetables, at_least_three_letters_at_least_twice),
     # room 2
     Room(),
     # room 3

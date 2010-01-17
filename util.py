@@ -2,8 +2,15 @@
 
 import mw
 
-def root_vegetables(s):
+# Generators
+def root_vegetables():
     return iter(['carrot', 'potato'])
+
+def postal_abbrev_of_US_state():
+    return iter(['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'])
+
+def metallic_element():
+    return iter(['Lithium', 'Sodium', 'Potassium', 'Rubidium', 'Caesium', 'Francium', 'Beryllium', 'Magnesium', 'Calcium', 'Strontium', 'Barium', 'Radium', 'Zinc', 'Molybdenum', 'Cadmium', 'Scandium', 'Titanium', 'Vanadium', 'Chromium', 'Manganese', 'Iron', 'Cobalt', 'Nickel', 'Copper', 'Yttrium', 'Zirconium', 'Niobium', 'Technetium', 'Ruthenium', 'Rhodium', 'Palladium', 'Silver', 'Hafnium', 'Tantalum', 'Tungsten', 'Rhenium', 'Osmium', 'Iridium', 'Platinum', 'Gold', 'Mercury', 'Rutherfordium', 'Dubnium', 'Seaborgium', 'Bohrium', 'Hassium', 'Meitnerium', 'Darmstadtium', 'Roentgenium', 'Ununbium', 'Aluminium', 'Gallium', 'Indium', 'Tin', 'Thallium', 'Lead', 'Bismuth', 'Ununtrium', 'Ununquadium', 'Ununpentium', 'Ununhexium', 'Lanthanum', 'Cerium', 'Praseodymium', 'Neodymium', 'Promethium', 'Samarium', 'Europium', 'Gadolinium', 'Terbium', 'Dysprosium', 'Holmium', 'Erbium', 'Thulium', 'Ytterbium', 'Lutetium', 'Actinium', 'Thorium', 'Protactinium', 'Uranium', 'Neptunium', 'Plutonium', 'Americium', 'Curium', 'Berkelium', 'Californium', 'Einsteinium', 'Fermium', 'Mendelevium', 'Nobelium', 'Lawrencium'])
 
 # Implementation of lots of crazy evaluation functions.
 

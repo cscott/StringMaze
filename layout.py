@@ -13,64 +13,64 @@ rooms = [
     # room 1
     Room(9, root_vegetables, at_least_three_letters_at_least_twice),
     # room 2
-    Room(8),
+    Room(8, None, even_number_of_letters),
     # room 3
-    Room(7),
+    Room(7, postal_abbrev_of_US_state, None),
     # room 4
-    Room(6),
+    Room(6, None, in_alphabetical_order),
     # room 5
-    Room(5),
+    Room(5, None, four_consonants),
 
     # ---- row 2 -----
     # room 6
-    Room(8),
+    Room(8, metallic_element, contains_name_of_board_game_on_square_grid),
     # room 7
-    Room(7),
+    Room(7, None, no_touching_letters_that_are_also_touching_in_the_alphabet),
     # room 8
-    Room(6),
+    Room(6, None, anagram_of_entry),
     # room 9
-    Room(5),
+    Room(5, None, all_different_letters),
     # room 10
-    Room(4),
+    Room(4, None, None),
 
     # ---- row 3 -----
     # room 11
-    Room(7),
+    Room(7, top_level_domain, None),
     # room 12
-    Room(6),
+    Room(6, domestic_cat, contains_at_least_four_roman_numerals),
     # room 13
-    Room(5),
+    Room(5, None, is_four_letters_or_shorter),
     # room 14
-    Room(4),
+    Room(4, month, alternates_consonants_and_vowels),
     # room 15
-    Room(3),
+    Room(3, zodiac_sign, word_sum_between_60_and_70),
 
     # ---- row 4 -----
     # room 16
-    Room(6),
+    Room(6, None, scrabble_score_divisible_by_9),
     # room 17
-    Room(5),
+    Room(5, None, straight_line_letters_only),
     # room 18
-    Room(4),
+    Room(4, unit_of_time, more_letters_from_second_half),
     # room 19
-    Room(3),
+    Room(3, surname_of_US_president, exactly_one_double),
     # room 20
-    Room(2),
+    Room(2, abbrev_of_compass_point, contains_name_of_Monopoly),
 
     # ---- row 5 -----
     # room 21
-    Room(5),
+    Room(5, None, one_letter_that_appears_three_times),
     # room 22
-    Room(4),
+    Room(4, None, prime_number_of_letters),
     # room 23
-    Room(3),
+    Room(3, whole_number_in_French, does_not_have_at_least_twice_as_many_consonants_as_vowels),
     # room 24
-    Room(2),
+    Room(2, None, has_exactly_six_enclosed_areas),
     # room 25
-    Room(1),
+    Room(1, None, has_exactly_nine_distinct_letters),
 
     # -- EXIT NODE --
-    Room(0)
+    Room(0, unit_of_length, is_entry_at_least_six_long)
     ]
 ENTER = rooms[0]
 EXIT = rooms[-1]

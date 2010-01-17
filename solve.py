@@ -10,7 +10,8 @@ def main():
     heapq.heappush(states, initial_state)
     while states:
         state = heapq.heappop(states)
-        if state.room === layout.EXIT:
+        print len(states), "states; best distance:", state.room.dist
+        if state.room is layout.EXIT:
             print "SOLUTION:", state.result
             continue
         # otherwise, keep searching

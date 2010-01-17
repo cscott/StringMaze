@@ -12,6 +12,31 @@ def postal_abbrev_of_US_state():
 def metallic_element():
     return iter(['Lithium', 'Sodium', 'Potassium', 'Rubidium', 'Caesium', 'Francium', 'Beryllium', 'Magnesium', 'Calcium', 'Strontium', 'Barium', 'Radium', 'Zinc', 'Molybdenum', 'Cadmium', 'Scandium', 'Titanium', 'Vanadium', 'Chromium', 'Manganese', 'Iron', 'Cobalt', 'Nickel', 'Copper', 'Yttrium', 'Zirconium', 'Niobium', 'Technetium', 'Ruthenium', 'Rhodium', 'Palladium', 'Silver', 'Hafnium', 'Tantalum', 'Tungsten', 'Rhenium', 'Osmium', 'Iridium', 'Platinum', 'Gold', 'Mercury', 'Rutherfordium', 'Dubnium', 'Seaborgium', 'Bohrium', 'Hassium', 'Meitnerium', 'Darmstadtium', 'Roentgenium', 'Ununbium', 'Aluminium', 'Gallium', 'Indium', 'Tin', 'Thallium', 'Lead', 'Bismuth', 'Ununtrium', 'Ununquadium', 'Ununpentium', 'Ununhexium', 'Lanthanum', 'Cerium', 'Praseodymium', 'Neodymium', 'Promethium', 'Samarium', 'Europium', 'Gadolinium', 'Terbium', 'Dysprosium', 'Holmium', 'Erbium', 'Thulium', 'Ytterbium', 'Lutetium', 'Actinium', 'Thorium', 'Protactinium', 'Uranium', 'Neptunium', 'Plutonium', 'Americium', 'Curium', 'Berkelium', 'Californium', 'Einsteinium', 'Fermium', 'Mendelevium', 'Nobelium', 'Lawrencium'])
 
+def top_level_domain():
+    return iter(['com','info','net','org','biz','name','pro'])
+
+domestic_cat = mw.mw_entry
+
+def month():
+    return iter(['January','February','March','April','May','June','July','August','September','October','November','December'])
+
+def zodiac_sign():
+    return iter(['Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn','Aquarius','Pisces'])
+
+unit_of_time = mw.mw_entry
+surname_of_US_president = mw.mw_entry
+
+def abbrev_of_compass_point():
+    return iter(['N','NNE','NE','ENE','E','ESE','SE','SSE',
+                 'S','SSW','SW','WSW','W','WNW','NW','NNW'])
+
+def whole_number_in_French():
+    return iter(['un','deux','trois','quatre','cinc','six','sept','dix','quinze','seize','vingtetun','cent','mille'])
+
+unit_of_length = mw.mw_entry
+#def unit_of_length():
+#    pass #
+
 # Implementation of lots of crazy evaluation functions.
 
 cons = set("bcdfghjklmnpqrstvwxyz")
@@ -61,6 +86,8 @@ def four_consonants(s):
 
 # TODO: contains the name of a board game played on a square grid
 # "chess", "battleship", "checkers"
+def contains_name_of_board_game_on_square_grid(s):
+    return True # XXX
 
 def no_touching_letters_that_are_also_touching_in_the_alphabet(s):
     old = 0
@@ -73,7 +100,7 @@ def no_touching_letters_that_are_also_touching_in_the_alphabet(s):
 # TODO: need set called anagrams_of_entries based on letter-level sorted words
 # from entries file
 def anagram_of_entry(s):
-    return sorted(s) in anagrams_of_entries
+    return mw.is_anagram(s)
 
 def all_different_letters(s):
     return len(set(s)) == len(s)
@@ -113,6 +140,8 @@ def word_sum_between_60_and_70(s):
     return word_sum(s) in (60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70)
 
 # TODO: Scrabble score divisible by 9
+def scrabble_score_divisible_by_9(s):
+    return True # XXX
 
 def straight_line_letters_only(s):
     for c in s:
@@ -134,9 +163,21 @@ def exactly_one_double(s):
         old = c
     return seen
 
-# TODO: contains name of Monopoly property
+def contains_name_of_Monopoly(s):
+    for prop in ['Kentucky','Indiana','Illinois','Chance','Atlantic','Ventnor','Waterworks','Marvin','Pacific','NorthCarolina','CommunityChest','Pennsylvania','ShortLine','Park','Boardwalk','Mediterranean','Baltic','IncomeTax','Reading','Oriental','Vermont','Connecticut','InJail','JustVisiting','StCharles','Electric','States','Virginia','Pennsylvania','StJames','Tennessee','NewYork']:
+        if prop.lower() in s: return True
+    return False
 
 # TODO: has exactly one letter that appears exactly 3 times
+def _count_letters(s):
+    r = {}
+    for ss in s:
+        r[ss] = r.get(ss, 0) + 1
+    return r
+
+def one_letter_that_appears_three_times(s):
+    tt = [ k for (k,v) in _count_letters(s).iteritems() if v==3]
+    return len(tt)==1
 
 def prime_number_of_letters(s):
     return len(s) in primes
@@ -154,4 +195,4 @@ def has_exactly_nine_distinct_letters(s):
     return 9 == number_of_distinct_letters(s)
 
 def is_entry_at_least_six_long(s):
-    return len(s) >= 6 and s in mw.dict_words
+    return len(s) >= 6 and s in mw._dict_words

@@ -6,8 +6,9 @@ default_bluebox = mw.mw_entry
 def default_greenbox(s): return False # any constraint
 
 class Room(object):
-    def __init__(self, dist,
-                 bluebox=default_bluebox, greenbox=default_greenbox):
+    def __init__(self, dist, bluebox=None, greenbox=None):
+        if bluebox is None: bluebox = default_bluebox
+        if greenbox is None: greenbox = default_greenbox
         self.dist = dist
         self.add_something = True # by default
         self.bluebox = bluebox
@@ -44,7 +45,7 @@ class State(object):
     def __cmp__(self, other):
         c = cmp(self.room.dist, other.room.dist)
         if c != 0: return c
-        return cmp(self.room.result, other.room.result)
+        return cmp(self.result, other.result)
 
     def step(self):
         # ok, add entries to the entry nodes
@@ -54,11 +55,11 @@ class State(object):
                 if neighbor.add_something:
                     # try prepending
                     nresult = entry + self.result
-                    if neighbor.greenbox(nresult):
+                    if (len(nresult) < 26) and neighbor.greenbox(nresult):
                         yield State(neighbor, nresult)
                     # try appending
                     nresult = self.result + entry
-                    if neighbor.greenbox(nresult):
+                    if (len(nresult) < 26) and neighbor.greenbox(nresult):
                         yield State(neighbor, nresult)
                 else: # don't add anything (middle box)
                     if neighbor.greenbox(self.result):

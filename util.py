@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+import mw
+
 def root_vegetables(s):
     return iter(['carrot', 'potato'])
 
@@ -13,19 +15,20 @@ one_enc = set("adopqr")
 two_enc = set("b")
 primes = set((2,3,5,7,11,13,17,19,23))
 
-# TODO: I DISAGREE with this implementation!  it returns True for "aaaaaaaaaa"
-
 def at_least_three_letters_at_least_twice(s):
-    count = 0
     seen = set()
+    repeat = set()
     for letter in s:
         if letter in seen:
-            count += 1
+            repeat.add(letter)
         seen.add(letter)
-    return count >= 3
+    return len(repeat)
 
 def number_of_distinct_letters(s):
     return len(set(s))
+
+def number_of_letters(s):
+    return len(s)
 
 def even_number_of_letters(s):
     return number_of_letters(s) % 2 == 0
@@ -46,7 +49,7 @@ def consonants(s):
 def vowels(s):
     return [x for x in s if x not in cons]
 
-def four_consonants():
+def four_consonants(s):
     return len(consonants(s)) == 4
 
 # TODO: contains the name of a board game played on a square grid
@@ -143,6 +146,5 @@ def has_exactly_six_enclosed_areas(s):
 def has_exactly_nine_distinct_letters(s):
     return 9 == number_of_distinct_letters(s)
 
-# TODO: create set "entries" from file
 def is_entry_at_least_six_long(s):
-    return len(s) >= 6 and s in entries
+    return len(s) >= 6 and s in mw.dict_words

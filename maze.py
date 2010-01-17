@@ -23,6 +23,19 @@ def add_minus(room1, room2):
     room1.remove_neighbors.append(room2)
     room2.remove_neighbors.append(room1)
 
+def _delete(result, entry):
+    if len(entry)==0:
+        yield result
+        return
+    if len(result)==0:
+        return
+    if result[0]==entry[0]:
+        for x in _delete(result[1:], entry[1:]):
+            yield x
+    for x in _delete(result[1:], entry):
+        yield result[0] + x
+    return
+
 class State(object):
     def __init__(self, room, result):
         self.room = room # Room object
@@ -37,6 +50,7 @@ class State(object):
         # ok, add entries to the entry nodes
         for neighbor in self.room.add_neighbors:
             for entry in neighbor.bluebox():
+                entry = entry.strip().lower()
                 if neighbor.add_something:
                     # try prepending
                     nresult = entry + self.result
@@ -52,8 +66,9 @@ class State(object):
         # do it again, following the 'remove' edges
         for neighbor in self.room.remove_neighbors:
             for entry in neighbor.bluebox():
+                entry = entry.strip().lower()
                 assert neighbor.add_something
-                for nresult in delete(result, entry):
+                for nresult in _delete(self.result, entry):
                     if neighbor.greenbox(nresult):
                         yield State(neighbor, nresult)
         # done!
